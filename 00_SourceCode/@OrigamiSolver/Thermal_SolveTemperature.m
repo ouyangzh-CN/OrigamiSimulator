@@ -33,6 +33,7 @@ function [T,indexArray]=Thermal_SolveTemperature(...
         qf=qin(indexArray);
 
         Kff=thermalMat(indexArray,indexArray);
+
         Ksf=thermalMat([roomTempNode',(airLayer*thermalNodeNum)+1:end],indexArray);
 
         T=Kff\(qf-Ksf'*Ts); 

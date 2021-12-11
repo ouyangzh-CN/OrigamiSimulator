@@ -27,17 +27,19 @@ function Plot_DeformedHisTemp(obj,beforeLoadingNode,UhisThermal,temperatureHisto
     
     pauseTime=0.01;
     filename='OriThermalAnimation.gif';
-    
-    MyFig=figure;
+    bool = exist('./'+string(filename),'file') ==0;
+
+    MyFig=figure(3);
     B=size(obj.newPanel);
     FaceNum=B(2);    
 
     set(gcf, 'color', 'white');
-    set(gcf,'position',[obj.x0,obj.y0,obj.width,obj.height])
+    %set(gcf,'Position',[0,-300,1000,1000])
         
-    for step=1:ThermalStep
+    for step=1:ThermalStep:ThermalStep
         
-        clf
+        cla(subplot(3,2,[1,3,5]))
+        subplot(3,2,[1,3,5])
         hold on
         view(View1,View2); 
 
@@ -51,10 +53,11 @@ function Plot_DeformedHisTemp(obj,beforeLoadingNode,UhisThermal,temperatureHisto
             'FaceAlpha', obj.faceAlphaAnimation);
         end
 
-        for i=1:FaceNum
-            tempPanel=cell2mat(obj.newPanel(i));
-            patch('Vertices',beforeLoadingNode,'Faces',tempPanel,'EdgeColor',[0.5 0.5 0.5],'FaceAlpha',0);
-        end
+% this is transparent initial origami
+%         for i=1:FaceNum
+%             tempPanel=cell2mat(obj.newPanel(i));
+%             patch('Vertices',beforeLoadingNode,'Faces',tempPanel,'EdgeColor',[0.5 0.5 0.5],'FaceAlpha',0);
+%         end
         
         T=squeeze(temperatureHistory(:,step));
         
@@ -103,7 +106,7 @@ function Plot_DeformedHisTemp(obj,beforeLoadingNode,UhisThermal,temperatureHisto
         im = frame2im(frame); 
         [imind,cm] = rgb2ind(im,256);
         % Write to the GIF File 
-        if step == 1 
+        if bool
             imwrite(imind,cm,filename,'gif','Loopcount',inf,'DelayTime', pauseTime); 
         else 
             imwrite(imind,cm,filename,'gif','WriteMode','append','DelayTime', pauseTime); 

@@ -19,10 +19,11 @@ View2=obj.viewAngle2;
 Vsize=obj.displayRange;
 Vratio=obj.displayRangeRatio;
 
-pauseTime=0.02;
+pauseTime=0.01;
 filename='OriAnimation.gif';
+bool = exist('./'+string(filename),'file') ==0;
+h=figure(3);
 
-h=figure;
 % view(View1,View2); 
 % set(gca,'DataAspectRatio',[1 1 1])
 % axis([-0.2*Vsize Vsize -0.2*Vsize Vsize -0.2*Vsize Vsize])
@@ -38,20 +39,17 @@ n1=B(2);
 n2=B(3);
 
 set(gcf, 'color', 'white');
-set(gcf,'position',[obj.x0,obj.y0,obj.width,obj.height])
+%set(gcf,'Position',[0,-300,1000,1000])
     
 
-for i=1:Incre
-    clf
+for i=1:Incre:Incre
+    cla(subplot(3,2,[1,3,5]))
+    subplot(3,2,[1,3,5])
     view(View1,View2); 
     set(gca,'DataAspectRatio',[1 1 1])
     axis([-Vratio*Vsize Vsize -Vratio*Vsize Vsize -Vratio*Vsize Vsize])
-    tempU=zeros(n1,n2);
-    for j=1:n1
-        for k=1:n2
-           tempU(j,k)=UhisLoading(i,j,k);
-        end
-    end
+    tempU = squeeze(UhisLoading(i,1:n1,1:n2));
+
     deformNode=undeformedNode+tempU;
     for j=1:FaceNum
         tempPanel=cell2mat(obj.newPanel(j));
@@ -59,15 +57,18 @@ for i=1:Incre
             'FaceColor',obj.faceColorAnimation, ...
             'FaceAlpha', obj.faceAlphaAnimation);     
     end
-    pause(pauseTime);  
+    %pause(pauseTime);  
     
     frame = getframe(h); 
     im = frame2im(frame); 
     [imind,cm] = rgb2ind(im,256); 
     % Write to the GIF File 
-    if i == 1 
-        imwrite(imind,cm,filename,'gif', 'Loopcount',inf); 
-    else 
+%     if i == 1 
+%         imwrite(imind,cm,filename,'gif', 'Loopcount',inf); 
+%     else 
+      if bool
+          imwrite(imind,cm,filename,'gif', 'Loopcount',inf); 
+      else
         imwrite(imind,cm,filename,'gif','WriteMode','append','DelayTime', pauseTime); 
-    end 
+     end 
 end
