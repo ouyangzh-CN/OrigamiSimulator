@@ -18,7 +18,7 @@ https://sites.google.com/view/yi-zhu/research/origami-simulator/
 
 **Figure 1.** Demo of trajectory planning. The robotics arm is asked to go through four red checkpoints.
 
-![alt text](https://github.com/ouyangzh-CN/OrigamiSimulator/blob/maste/05_RobArm/Ani_thermalplot.gif)
+![alt text](https://github.com/ouyangzh-CN/OrigamiSimulator/blob/master/05_RobArm/Ani_thermalplot.gif)
 
 **Figure 2.** Demo of Thermal control. Same as above, four checkpoints are given. We input thermal energy into the creases to accomplish gesture transformation. The desired temperature time series is given.
 
