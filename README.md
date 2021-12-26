@@ -13,8 +13,16 @@ Please check the package on our group website or my personal website:
 https://drsl.engin.umich.edu/software/swomps-package/
 
 https://sites.google.com/view/yi-zhu/research/origami-simulator/
+## Demo of trajectory planning and thermal control
+![alt text](https://github.com/ouyangzh-CN/OrigamiSimulator/tree/thermaldynamics/05_RobArm/Ani_plot.gif)
 
-## Main Features of the package:
+**Figure 1.** Demo of trajectory planning. The robotics arm is asked to go through four red checkpoints.
+
+![alt text](https://github.com/ouyangzh-CN/OrigamiSimulator/tree/thermaldynamics/05_RobArm/Ani_thermalplot.gif)
+
+**Figure 2.** Demo of Thermal control. Same as above, four checkpoints are given. We input thermal energy into the creases to accomplish gesture transformation. The desired temperature time series is given.
+
+## Main features of the package:
 
 * Provides five different loading simulation methods, inlcuding Newton-Raphson method,
     Displacement controlled method, Generalized displacement controlled method,
@@ -24,18 +32,18 @@ https://sites.google.com/view/yi-zhu/research/origami-simulator/
     sequence of the provided five loading methods. 
     
 * Simulates compliant creases in active origami and provides automated Meshing 
-    code for compliant creases. (**Figure 1**)
+    code for compliant creases. (**Figure 3**)
 
-* Simulates inter-panel contact induced mechanical behaviors within origami. (**Figure 2**)
+* Simulates inter-panel contact induced mechanical behaviors within origami. (**Figure 4**)
 
 * Simulates heat transfer in origami systems and captures the electro-
-    thermo-mechanically coupled actuation of active origami creases. (**Figure 3**)
+    thermo-mechanically coupled actuation of active origami creases. (**Figure 5**)
     
 <p align="center">
 <img src="https://github.com/zzhuyii/OrigamiSimulator/blob/master/04_Documents_Figures/RealisticCrease.png" width="45%" >
 </p>
 
-**Figure 1.** The package allows users to simulate origami systems with compliant creases, which are creases with non-negligible width. 
+**Figure 3.** The package allows users to simulate origami systems with compliant creases, which are creases with non-negligible width. 
 Using the compliant crease meshing provides more realistic geometry and allows the simulator to capture advanced mechanical behaviors such as bistability
  and multi-physics actuation. 
 
@@ -43,14 +51,14 @@ Using the compliant crease meshing provides more realistic geometry and allows t
 <img align="center" src="https://github.com/zzhuyii/OrigamiSimulator/blob/master/04_Documents_Figures/InterLockingDevice.PNG" width="60%" >
 </p>
 
-**Figure 2.** The package allows users to simulate global inter-panel contact within the origami. This panel contact model is a physics-based 
+**Figure 4.** The package allows users to simulate global inter-panel contact within the origami. This panel contact model is a physics-based 
 frictionless contact model and can give the correponding forcese between the contacting panels. 
  
 <p align="center">
 <img align="center" src="https://github.com/zzhuyii/OrigamiSimulator/blob/master/04_Documents_Figures/GraphAbstract_webpage.png" width="50%" >
 </p>
     
-**Figure 3.** The package allows users to simulate multi-physics based electro-thermal actuation in the origami creases. The package can capture 
+**Figure 5.** The package allows users to simulate multi-physics based electro-thermal actuation in the origami creases. The package can capture 
 the heat transfer of active origami and can calculate the active crease folding due to changing temperature. 
 
 ## Using the Code:

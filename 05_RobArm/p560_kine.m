@@ -136,7 +136,8 @@ qdhis = [qdhis;qd];
 qddhis = [qddhis;qdd];
 
 ori.loadingController{1}={"SelfFold",selfFold};
-selfFold.targetRotZeroStrain=zeros(ori.oldCreaseNum,1);
+selfFold.targetRotZeroStrain=pi*ones(ori.oldCreaseNum,1);
+ori.Solver_Solve(); 
 figure(3)
 hold on
 

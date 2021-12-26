@@ -48,7 +48,7 @@ ori.viewAngle1 = -45;
 ori.viewAngle2 = 45;
 
 %  ori.Plot_UnmeshedOrigami();
-  ori.Plot_MeshedOrigami();
+%  ori.Plot_MeshedOrigami();
 
 %% Assign Mechanical Properties
 
